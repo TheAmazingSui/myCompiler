@@ -23,6 +23,17 @@ namespace MYCOMPILER.CodeAnalysis
             {
                 return (int)n.LiteralToken.Value;
             }
+            else if(root is UnaryExpressionSyntaxe u)
+            {
+                var ans = EvaluateExpression(u.Operand);
+                if (u.OperatorToken.Kind == SyntaxeKind.PlusToken)
+                    return ans;
+                else if (u.OperatorToken.Kind == SyntaxeKind.MinusToken)
+                    return -ans;
+                else
+                    throw new Exception($"Unexpected operator: '{u.OperatorToken.Kind}!");
+                
+            }
             else if (root is BinaryExpressionSyntaxe b)
             {
                 var lft = EvaluateExpression(b.Left);

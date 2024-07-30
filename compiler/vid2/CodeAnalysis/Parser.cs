@@ -71,11 +71,21 @@ namespace MYCOMPILER.CodeAnalysis
 
         private ExpressionSyntaxe parseExpression(int parentPrecedence = 0)
         {
-            var left = ParsePrimaryExpression();
-
-            while(true)
+            var unary = SyntaxFacts.GetUnaryOperatorPriority(Current.Kind);
+            ExpressionSyntaxe left;
+            if(unary !=0 && unary >= parentPrecedence)
             {
-                var opPriority = getBinaryOperatorPriority();
+                var operatorToken = NextToken();
+                var operand =  parseExpression(unary);
+                left = new UnaryExpressionSyntaxe(operand, operatorToken);
+            }
+            else{
+                left = ParsePrimaryExpression();
+            }
+
+            while (true)
+            {
+                var opPriority = SyntaxFacts.GetBinaryOperatorPriority(Current.Kind);
                 if (opPriority == 0 || opPriority <= parentPrecedence)
                     break;
                 var op = NextToken();
@@ -85,20 +95,6 @@ namespace MYCOMPILER.CodeAnalysis
             return left;
         }
 
-        private int getBinaryOperatorPriority()
-        {
-            switch(Current.Kind)
-            {
-                case SyntaxeKind.PlusToken:
-                case SyntaxeKind.MinusToken:
-                    return 1;
-                case SyntaxeKind.TimesToken:
-                case SyntaxeKind.DivideToken:
-                    return 2;
-                default:
-                    return 0;
-            }
-        }
 
 
         private ExpressionSyntaxe ParsePrimaryExpression()

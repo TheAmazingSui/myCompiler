@@ -1,7 +1,7 @@
 
 
 namespace MYCOMPILER.CodeAnalysis{
-    enum SyntaxeKind{
+    public enum SyntaxeKind{
 
         //Tokens
         NumberToken,
@@ -18,6 +18,7 @@ namespace MYCOMPILER.CodeAnalysis{
         //Expressions
         BinaryExpression,
         ParenthesizedExpression,
-        LiteralExpression
+        LiteralExpression,
+        UnaryExpression
     }
 } 

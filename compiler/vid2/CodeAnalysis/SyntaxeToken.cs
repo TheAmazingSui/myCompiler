@@ -2,7 +2,7 @@
 
 namespace MYCOMPILER.CodeAnalysis
 {
-    class SyntaxeToken : SyntaxeNode
+    public class SyntaxeToken : SyntaxeNode
     {
         public SyntaxeToken(SyntaxeKind kind,int position,string text, object value)
         {

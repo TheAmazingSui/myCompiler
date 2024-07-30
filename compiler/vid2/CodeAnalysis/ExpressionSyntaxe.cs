@@ -3,7 +3,7 @@
 
 namespace MYCOMPILER.CodeAnalysis
 {
-    abstract class ExpressionSyntaxe : SyntaxeNode
+    public abstract class ExpressionSyntaxe : SyntaxeNode
     {
 
     }
