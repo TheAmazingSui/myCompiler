@@ -1,5 +1,5 @@
 
-namespace MYCOMPILER.CodeAnalysis
+namespace MYCOMPILER.CodeAnalysis.Syntax
 {
     public abstract class SyntaxeNode{
         public abstract SyntaxeKind Kind{get;}

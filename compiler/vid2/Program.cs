@@ -1,7 +1,8 @@
 ﻿using System;
 
+using MYCOMPILER.CodeAnalysis.Syntax;
 using MYCOMPILER.CodeAnalysis;
-
+using MYCOMPILER.CodeAnalysis.Binding;
 
 namespace vid2
 {
@@ -28,27 +29,29 @@ namespace vid2
 
                 //Lexer lexer = new Lexer(line);
                 SyntaxTree exp = SyntaxTree.parse(line);
-                var color = Console.ForegroundColor;
+                var binder = new Binder();
+                var boundExp = binder.bindExpression(exp.Root);
+                var diagnostics = exp.Diagnostics.Concat(binder.Diagnostics).ToArray();
+
                 if(showTree)
                 {
                     
                     Console.ForegroundColor = ConsoleColor.DarkGreen;
                     PrettyPrint(exp.Root);
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
                 
-
-                if(exp.Diagnostics.Any())
+                if(diagnostics.Any())
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     foreach(var e in exp.Diagnostics)
                     {
                         Console.WriteLine(e);
                     }
-                    Console.ForegroundColor = color;
+                    Console.ResetColor();
                 }
                 else{
-                    Evaluator eval = new Evaluator(exp.Root);
+                    Evaluator eval = new Evaluator(boundExp);
                     var result = eval.Evaluate();
                     Console.WriteLine(result);
 

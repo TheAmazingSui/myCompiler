@@ -1,7 +1,7 @@
 
 
 
-namespace MYCOMPILER.CodeAnalysis
+namespace MYCOMPILER.CodeAnalysis.Syntax
 {
     class Parser
     {

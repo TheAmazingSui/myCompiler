@@ -1,6 +1,6 @@
 
 
-namespace MYCOMPILER.CodeAnalysis
+namespace MYCOMPILER.CodeAnalysis.Syntax
 {
     sealed class LiteralExpressionSyntaxe : ExpressionSyntaxe
     {

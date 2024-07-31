@@ -1,5 +1,5 @@
 
-namespace MYCOMPILER.CodeAnalysis
+namespace MYCOMPILER.CodeAnalysis.Syntax
 {
     public sealed class UnaryExpressionSyntaxe : ExpressionSyntaxe{
         public UnaryExpressionSyntaxe(ExpressionSyntaxe operand, SyntaxeToken operatorToken)

@@ -1,6 +1,6 @@
 
 
-namespace MYCOMPILER.CodeAnalysis{
+namespace MYCOMPILER.CodeAnalysis.Syntax{
     public enum SyntaxeKind{
 
         //Tokens

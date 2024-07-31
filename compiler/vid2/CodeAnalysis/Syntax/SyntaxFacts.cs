@@ -1,6 +1,6 @@
 
 
-namespace MYCOMPILER.CodeAnalysis
+namespace MYCOMPILER.CodeAnalysis.Syntax
 {
     internal static class SyntaxFacts{
         public static int GetBinaryOperatorPriority(SyntaxeKind kind)

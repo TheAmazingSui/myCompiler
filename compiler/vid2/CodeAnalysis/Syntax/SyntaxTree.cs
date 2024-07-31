@@ -1,5 +1,5 @@
 
-namespace MYCOMPILER.CodeAnalysis
+namespace MYCOMPILER.CodeAnalysis.Syntax
 {
     sealed class SyntaxTree
     {
