@@ -12,12 +12,15 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                     return 1;
                 case SyntaxeKind.LogicalAndToken:
                     return 2;
+                case SyntaxeKind.DoubleEqualToken:
+                case SyntaxeKind.NotEqualToken:
+                    return 3;
                 case SyntaxeKind.PlusToken:
                 case SyntaxeKind.MinusToken:
-                    return 3;
+                    return 4;
                 case SyntaxeKind.TimesToken:
                 case SyntaxeKind.DivideToken:
-                    return 4;
+                    return 5;
                 default:
                     return 0;
             }
@@ -30,7 +33,7 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 case SyntaxeKind.PlusToken:
                 case SyntaxeKind.MinusToken:
                 case SyntaxeKind.BadToken:
-                    return 5;
+                    return 6;
                 default:
                     return 0;
             }

@@ -43,33 +43,26 @@ namespace MYCOMPILER.CodeAnalysis
                 var lft = EvaluateExpression(b.Left);
                 var rgt = EvaluateExpression(b.Right);
 
-                if (b.Op.BoundOP == BoundBinaryOperatorKind.Addition)
+                switch (b.Op.BoundOP)
                 {
-                    return (int)lft + (int)rgt;
-                }
-                else if (b.Op.BoundOP == BoundBinaryOperatorKind.Subtraction)
-                {
-                    return (int)lft - (int)rgt;
-                }
-                else if (b.Op.BoundOP == BoundBinaryOperatorKind.Multiplication)
-                {
-                    return (int)lft * (int)rgt;
-                }
-                else if (b.Op.BoundOP == BoundBinaryOperatorKind.Division)
-                {
-                    return (int)lft / (int)rgt;
-                }
-                else if(b.Op.BoundOP == BoundBinaryOperatorKind.LogicalAnd)
-                {
-                    return (bool) lft && (bool) rgt;
-                }
-                else if(b.Op.BoundOP == BoundBinaryOperatorKind.LogicalOr)
-                {
-                    return (bool)lft || (bool)rgt;
-                }
-                else
-                {
-                    throw new Exception($"Unexpected operator: '{b.Op.BoundOP}!");
+                    case BoundBinaryOperatorKind.Addition:
+                        return (int)lft + (int)rgt;
+                    case BoundBinaryOperatorKind.Subtraction:
+                        return (int)lft - (int)rgt;
+                    case BoundBinaryOperatorKind.Multiplication:
+                        return (int)lft * (int)rgt;
+                    case BoundBinaryOperatorKind.Division:
+                        return (int)lft / (int)rgt;
+                    case BoundBinaryOperatorKind.LogicalAnd:
+                        return (bool)lft && (bool)rgt;
+                    case BoundBinaryOperatorKind.LogicalOr:
+                        return (bool)lft || (bool)rgt;
+                    case BoundBinaryOperatorKind.Equality:
+                        return Equals(lft, rgt);
+                    case BoundBinaryOperatorKind.Inequality:
+                        return !Equals(lft, rgt);
+                    default:
+                        throw new Exception($"Unexpected operator: '{b.Op.BoundOP}!");
                 }
             }
             //else if (root is ParenthesizedExpressionSyntax p)

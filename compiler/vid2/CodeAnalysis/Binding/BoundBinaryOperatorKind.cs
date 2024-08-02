@@ -8,6 +8,8 @@ namespace MYCOMPILER.CodeAnalysis.Binding
         Division,
 
         LogicalAnd,
-        LogicalOr
+        LogicalOr,
+        Equality,
+        Inequality
     }
 }

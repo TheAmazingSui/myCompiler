@@ -108,6 +108,8 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
             }
             else if(Current=='!')
             {
+                if (Lookahead == '=')
+                    return new SyntaxeToken(SyntaxeKind.NotEqualToken, position += 2, "!=", null);
                 return new SyntaxeToken(SyntaxeKind.BangToken, position++, "!", null);
             }
             else if(Current=='&')
@@ -119,6 +121,11 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
             {
                 if(Lookahead == '|')
                     return new SyntaxeToken(SyntaxeKind.LogicalOrToken, position+=2, "||", null);
+            }
+            else if(Current == '=')
+            {
+                if (Lookahead == '=')
+                    return new SyntaxeToken(SyntaxeKind.DoubleEqualToken, position += 2, "==", null);
             }
 
             diagnostics.Add($"ERROR: Bad token input '{Current}'");

@@ -19,9 +19,14 @@ namespace MYCOMPILER.CodeAnalysis.Syntax{
         //KeyWord
         TrueKeyword,
         FalseKeyword,
+
+        //Bools
         BangToken,
         LogicalAndToken,
         LogicalOrToken,
+
+        DoubleEqualToken,
+        NotEqualToken,
 
         //Expressions
         BinaryExpression,

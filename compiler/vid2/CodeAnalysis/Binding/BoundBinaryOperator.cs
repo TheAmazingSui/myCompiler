@@ -25,8 +25,14 @@ namespace MYCOMPILER.CodeAnalysis.Binding
             new BoundBinaryOperator(SyntaxeKind.TimesToken, BoundBinaryOperatorKind.Multiplication, typeof(int), typeof(int),typeof(int)),
             new BoundBinaryOperator(SyntaxeKind.DivideToken, BoundBinaryOperatorKind.Division, typeof(int), typeof(int), typeof(int)),
             new BoundBinaryOperator(SyntaxeKind.LogicalAndToken, BoundBinaryOperatorKind.LogicalAnd, typeof(bool),typeof(bool),typeof(bool)),
-            new BoundBinaryOperator(SyntaxeKind.LogicalOrToken, BoundBinaryOperatorKind.LogicalOr, typeof(bool),typeof(bool),typeof(bool))
-        };
+            new BoundBinaryOperator(SyntaxeKind.LogicalOrToken, BoundBinaryOperatorKind.LogicalOr, typeof(bool),typeof(bool),typeof(bool)),
+            new BoundBinaryOperator(SyntaxeKind.DoubleEqualToken, BoundBinaryOperatorKind.Equality,typeof(int), typeof(int), typeof(bool)),
+            new BoundBinaryOperator(SyntaxeKind.NotEqualToken, BoundBinaryOperatorKind.Inequality, typeof(int), typeof(int), typeof(bool)),
+            new BoundBinaryOperator(SyntaxeKind.DoubleEqualToken, BoundBinaryOperatorKind.Equality,typeof(bool), typeof(bool), typeof(bool)),
+            new BoundBinaryOperator(SyntaxeKind.NotEqualToken, BoundBinaryOperatorKind.Inequality, typeof(bool), typeof(bool), typeof(bool))
+
+
+        };  
 
         public static BoundBinaryOperator bind(SyntaxeKind kind, Type leftType, Type rightType)
         {
