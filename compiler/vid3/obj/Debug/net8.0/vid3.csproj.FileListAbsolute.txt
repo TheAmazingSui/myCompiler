@@ -1,0 +1,15 @@
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/vid3
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/vid3.deps.json
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/vid3.runtimeconfig.json
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/vid3.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/vid3.pdb
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.AssemblyInfoInputs.cache
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.AssemblyInfo.cs
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.csproj.CoreCompileInputs.cache
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.sourcelink.json
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/refint/vid3.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.pdb
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.genruntimeconfig.cache
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/ref/vid3.dll

@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "compiler", "compiler", "{E6
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vid2", "compiler\vid2\vid2.csproj", "{9EC9FA6A-FCD0-435F-8452-74538B3DD6BC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vid3", "compiler\vid3\vid3.csproj", "{A94807EA-A569-4CD0-A9B1-282B6E29FDBF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -25,6 +27,10 @@ Global
 		{9EC9FA6A-FCD0-435F-8452-74538B3DD6BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9EC9FA6A-FCD0-435F-8452-74538B3DD6BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9EC9FA6A-FCD0-435F-8452-74538B3DD6BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A94807EA-A569-4CD0-A9B1-282B6E29FDBF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A94807EA-A569-4CD0-A9B1-282B6E29FDBF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A94807EA-A569-4CD0-A9B1-282B6E29FDBF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A94807EA-A569-4CD0-A9B1-282B6E29FDBF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -35,5 +41,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{2D6BA5DB-2B6B-4809-BA79-BEA1984A6198} = {AB5905C6-6221-4BF4-BF57-FCBE561B2343}
 		{9EC9FA6A-FCD0-435F-8452-74538B3DD6BC} = {E68DD66C-31E1-4B4D-A2B8-530FDCAEF63F}
+		{A94807EA-A569-4CD0-A9B1-282B6E29FDBF} = {E68DD66C-31E1-4B4D-A2B8-530FDCAEF63F}
 	EndGlobalSection
 EndGlobal
