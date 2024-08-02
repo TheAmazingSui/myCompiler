@@ -14,6 +14,14 @@ namespace MYCOMPILER.CodeAnalysis.Syntax{
         CloseParenthesisToken,
         BadToken,
         EndOfFileToken,
+        IdentifierKeyword,
+
+        //KeyWord
+        TrueKeyword,
+        FalseKeyword,
+        BangToken,
+        LogicalAndToken,
+        LogicalOrToken,
 
         //Expressions
         BinaryExpression,

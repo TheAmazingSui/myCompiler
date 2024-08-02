@@ -44,7 +44,7 @@ namespace vid2
                 if(diagnostics.Any())
                 {
                     Console.ForegroundColor = ConsoleColor.DarkRed;
-                    foreach(var e in exp.Diagnostics)
+                    foreach(var e in diagnostics)
                     {
                         Console.WriteLine(e);
                     }

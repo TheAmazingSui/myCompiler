@@ -13,25 +13,27 @@ namespace MYCOMPILER.CodeAnalysis
 
         private readonly BoundExpression Root;
 
-        public int Evaluate()
+        public object Evaluate()
         {
             return EvaluateExpression(Root);
         }
 
-        public int EvaluateExpression(BoundExpression root)
+        public object EvaluateExpression(BoundExpression root)
         {
 
             if (root is BoundLiteralExpression n)
             {
-                return (int)n.Value;
+                return n.Value;
             }
             else if(root is BoundUnaryExpression u)
             {
                 var ans = EvaluateExpression(u.Operand);
-                if (u.BoundOp == BoundUnaryOperatorKind.Identity)
-                    return ans;
-                else if (u.BoundOp == BoundUnaryOperatorKind.Negation)
-                    return -ans;
+                if (u.BoundOp.BoundKind == BoundUnaryOperatorKind.Identity)
+                    return (int)ans;
+                else if (u.BoundOp.BoundKind == BoundUnaryOperatorKind.Negation)
+                    return -(int)ans;
+                else if (u.BoundOp.BoundKind == BoundUnaryOperatorKind.LogicalNegation)
+                    return !(bool)ans;
                 else
                     throw new Exception($"Unexpected operator: '{u.BoundOp}!");
                 
@@ -41,25 +43,33 @@ namespace MYCOMPILER.CodeAnalysis
                 var lft = EvaluateExpression(b.Left);
                 var rgt = EvaluateExpression(b.Right);
 
-                if (b.OpKind == BoundBinaryOperatorKind.Addition)
+                if (b.Op.BoundOP == BoundBinaryOperatorKind.Addition)
                 {
-                    return lft + rgt;
+                    return (int)lft + (int)rgt;
                 }
-                else if (b.OpKind == BoundBinaryOperatorKind.Subtraction)
+                else if (b.Op.BoundOP == BoundBinaryOperatorKind.Subtraction)
                 {
-                    return lft - rgt;
+                    return (int)lft - (int)rgt;
                 }
-                else if (b.OpKind == BoundBinaryOperatorKind.Multiplication)
+                else if (b.Op.BoundOP == BoundBinaryOperatorKind.Multiplication)
                 {
-                    return lft * rgt;
+                    return (int)lft * (int)rgt;
                 }
-                else if (b.OpKind == BoundBinaryOperatorKind.Division)
+                else if (b.Op.BoundOP == BoundBinaryOperatorKind.Division)
                 {
-                    return lft / rgt;
+                    return (int)lft / (int)rgt;
+                }
+                else if(b.Op.BoundOP == BoundBinaryOperatorKind.LogicalAnd)
+                {
+                    return (bool) lft && (bool) rgt;
+                }
+                else if(b.Op.BoundOP == BoundBinaryOperatorKind.LogicalOr)
+                {
+                    return (bool)lft || (bool)rgt;
                 }
                 else
                 {
-                    throw new Exception($"Unexpected operator: '{b.OpKind}!");
+                    throw new Exception($"Unexpected operator: '{b.Op.BoundOP}!");
                 }
             }
             //else if (root is ParenthesizedExpressionSyntax p)

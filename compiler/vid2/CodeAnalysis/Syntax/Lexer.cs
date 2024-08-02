@@ -17,14 +17,17 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
 
         }
 
-        private char Current{
-            get{
-                if(position>=text.Length)
-                {
-                    return '\0';
-                }
-                return text[position];
+        private char Current => Peek(0);
+
+        private char Lookahead => Peek(1);
+        private char Peek(int offset)
+        {
+            var index = position + offset;
+            if(index>=text.Length)
+            {
+                return '\0';
             }
+            return text[index];
         }
 
         private void Next()
@@ -67,7 +70,21 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 return new SyntaxeToken(SyntaxeKind.WhiteSpaceToken, start, whiteS,value);
 
             }
+            //True or False
+            else if(char.IsLetter(Current))
+            {
+                var start = position;
+                while(char.IsLetter(Current))
+                {
+                    Next();
+                }
+                var end = position;
+                var length = end - start;
+                var boolS = text.Substring(start, length);
+                var kind = SyntaxFacts.GetKeywordKind(boolS);
+                return new SyntaxeToken(kind, start, boolS,null);
 
+            }
             else if(Current == '+')
             {
                 return new SyntaxeToken(SyntaxeKind.PlusToken, position++, "+", null);
@@ -88,6 +105,20 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
             }else if(Current == ')')
             {
                 return new SyntaxeToken(SyntaxeKind.CloseParenthesisToken, position++, ")", null);
+            }
+            else if(Current=='!')
+            {
+                return new SyntaxeToken(SyntaxeKind.BangToken, position++, "!", null);
+            }
+            else if(Current=='&')
+            {
+                if(Lookahead == '&')
+                    return new SyntaxeToken(SyntaxeKind.LogicalAndToken, position+=2, "&&", null);
+            }
+            else if(Current=='|')
+            {
+                if(Lookahead == '|')
+                    return new SyntaxeToken(SyntaxeKind.LogicalOrToken, position+=2, "||", null);
             }
 
             diagnostics.Add($"ERROR: Bad token input '{Current}'");

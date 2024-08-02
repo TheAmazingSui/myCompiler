@@ -107,6 +107,12 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 var right = match(SyntaxeKind.CloseParenthesisToken);
                 return new ParenthesizedExpressionSyntax(left, exp, right);
             }
+            else if(Current.Kind == SyntaxeKind.TrueKeyword || Current.Kind == SyntaxeKind.FalseKeyword)    
+            {
+                var keyWord = NextToken();
+                var value = keyWord.Kind == SyntaxeKind.TrueKeyword;
+                return new LiteralExpressionSyntaxe(keyWord, value);
+            }
             SyntaxeToken numExp = match(SyntaxeKind.NumberToken);
             return new LiteralExpressionSyntaxe(numExp);
         }
