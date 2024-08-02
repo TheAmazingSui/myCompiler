@@ -21,6 +21,8 @@ namespace MYCOMPILER.CodeAnalysis.Binding
                     return bindUnaryExpression((UnaryExpressionSyntaxe)syntax);
                 case SyntaxeKind.BinaryExpression:
                     return bindBinaryExpression((BinaryExpressionSyntaxe)syntax);
+                case SyntaxeKind.ParenthesizedExpression:
+                    return bindExpression(((ParenthesizedExpressionSyntax)syntax).NumExp);
                 default:
                     throw new Exception($"Unexpected Kind encountered: {syntax.Kind}");   
 
