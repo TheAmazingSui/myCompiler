@@ -2,7 +2,7 @@
 using MYCOMPILER.CodeAnalysis;
 using MYCOMPILER.CodeAnalysis.Binding;
 
-namespace vid2
+namespace vid3
 {
     class Program
     {
@@ -27,9 +27,9 @@ namespace vid2
 
                 //Lexer lexer = new Lexer(line);
                 SyntaxTree exp = SyntaxTree.parse(line);
-                var binder = new Binder();
-                var boundExp = binder.bindExpression(exp.Root);
-                var diagnostics = exp.Diagnostics.Concat(binder.Diagnostics).ToArray();
+                var compilation = new Compilation(exp);
+                var result = compilation.Evaluate();
+                var diagnostics = result.Diagnostics;
 
                 if(showTree)
                 {
@@ -44,14 +44,30 @@ namespace vid2
                     Console.ForegroundColor = ConsoleColor.DarkRed;
                     foreach(var e in diagnostics)
                     {
+
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
                         Console.WriteLine(e);
+                        Console.ResetColor();
+
+                        var prefix = line.Substring(0, e.Span.Start);
+                        var error = line.Substring(e.Span.Start, e.Span.Length);
+                        var suffix = line.Substring(e.Span.End);
+
+                        Console.WriteLine("    ");
+                        Console.Write(prefix);
+
+                        Console.ForegroundColor = ConsoleColor.DarkRed;
+                        Console.Write(error);
+                        Console.ResetColor();
+
+
+                        Console.Write(suffix);
+                        Console.WriteLine();
                     }
                     Console.ResetColor();
                 }
                 else{
-                    Evaluator eval = new Evaluator(boundExp);
-                    var result = eval.Evaluate();
-                    Console.WriteLine(result);
+                    Console.WriteLine(result.Value);
 
                 }
             }

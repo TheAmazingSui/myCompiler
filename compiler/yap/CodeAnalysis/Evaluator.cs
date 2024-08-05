@@ -1,5 +1,3 @@
-using MYCOMPILER.CodeAnalysis.Syntax;
-
 using MYCOMPILER.CodeAnalysis.Binding;
 
 namespace MYCOMPILER.CodeAnalysis

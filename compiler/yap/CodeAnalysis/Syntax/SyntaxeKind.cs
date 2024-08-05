@@ -15,6 +15,7 @@ namespace MYCOMPILER.CodeAnalysis.Syntax{
         BadToken,
         EndOfFileToken,
         IdentifierKeyword,
+        EqualToken,
 
         //KeyWord
         TrueKeyword,

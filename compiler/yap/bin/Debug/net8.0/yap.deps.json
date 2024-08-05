@@ -6,14 +6,6 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v8.0": {
-      "vid3/1.0.0": {
-        "dependencies": {
-          "yap": "1.0.0"
-        },
-        "runtime": {
-          "vid3.dll": {}
-        }
-      },
       "yap/1.0.0": {
         "runtime": {
           "yap.dll": {}
@@ -22,11 +14,6 @@
     }
   },
   "libraries": {
-    "vid3/1.0.0": {
-      "type": "project",
-      "serviceable": false,
-      "sha512": ""
-    },
     "yap/1.0.0": {
       "type": "project",
       "serviceable": false,

@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("vid3")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eeb1a97e8ca06e804f74ae0debfc83d9e8376158")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+eaa69656890ee472e31f45623283ba05d4742dd4")]
 [assembly: System.Reflection.AssemblyProductAttribute("vid3")]
 [assembly: System.Reflection.AssemblyTitleAttribute("vid3")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

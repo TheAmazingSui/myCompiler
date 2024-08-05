@@ -1,30 +1,11 @@
 {
   "version": 3,
   "targets": {
-    "net8.0": {
-      "yap/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v8.0",
-        "compile": {
-          "bin/placeholder/yap.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/yap.dll": {}
-        }
-      }
-    }
+    "net8.0": {}
   },
-  "libraries": {
-    "yap/1.0.0": {
-      "type": "project",
-      "path": "../yap/yap.csproj",
-      "msbuildProject": "../yap/yap.csproj"
-    }
-  },
+  "libraries": {},
   "projectFileDependencyGroups": {
-    "net8.0": [
-      "yap >= 1.0.0"
-    ]
+    "net8.0": []
   },
   "packageFolders": {
     "/home/theamazingsui/.nuget/packages/": {}
@@ -32,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/vid3.csproj",
-      "projectName": "vid3",
-      "projectPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/vid3.csproj",
+      "projectUniqueName": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj",
+      "projectName": "yap",
+      "projectPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj",
       "packagesPath": "/home/theamazingsui/.nuget/packages/",
-      "outputPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/",
+      "outputPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/theamazingsui/.nuget/NuGet/NuGet.Config"
@@ -50,11 +31,7 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
-          "projectReferences": {
-            "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj": {
-              "projectPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj"
-            }
-          }
+          "projectReferences": {}
         }
       },
       "warningProperties": {

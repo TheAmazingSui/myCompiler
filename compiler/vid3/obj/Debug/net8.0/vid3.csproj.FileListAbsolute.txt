@@ -13,3 +13,7 @@
 /mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.pdb
 /mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.genruntimeconfig.cache
 /mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/ref/vid3.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.csproj.AssemblyReference.cache
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/yap.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/bin/Debug/net8.0/yap.pdb
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/vid3/obj/Debug/net8.0/vid3.csproj.Up2Date

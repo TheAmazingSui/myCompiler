@@ -6,9 +6,9 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
     {
         private readonly string text;
 
-        private List<String> diagnostics = new List<String>();
+        private DiagnosticBag diagnostics = new DiagnosticBag();
 
-        public IEnumerable<string> Diagnostics => diagnostics;
+        public DiagnosticBag Diagnostics => diagnostics;
         private int position;
         public Lexer(string text)
         {
@@ -52,7 +52,7 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 var length = end - start;
                 var num = text.Substring(start, length);
                 if(!int.TryParse(num, out var value )){
-                    diagnostics.Add($"The number {num} cannot be represented by an int32 value");
+                    diagnostics.ReportInvalidNumber(new TextSpan(start,length), text, typeof(int));
                 }
                 return new SyntaxeToken(SyntaxeKind.NumberToken, start, num, value);
             }
@@ -108,27 +108,49 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
             }
             else if(Current=='!')
             {
+                var prev_pos = position;
                 if (Lookahead == '=')
-                    return new SyntaxeToken(SyntaxeKind.NotEqualToken, position += 2, "!=", null);
+                {
+                    position += 2;
+                    return new SyntaxeToken(SyntaxeKind.NotEqualToken, prev_pos, "!=", null);
+                }
+                    
                 return new SyntaxeToken(SyntaxeKind.BangToken, position++, "!", null);
             }
             else if(Current=='&')
             {
+                var prev_pos = position;
                 if(Lookahead == '&')
-                    return new SyntaxeToken(SyntaxeKind.LogicalAndToken, position+=2, "&&", null);
+                {
+                    position += 2;
+                    return new SyntaxeToken(SyntaxeKind.LogicalAndToken, prev_pos, "&&", null);
+                }
+                    
             }
             else if(Current=='|')
             {
+                var prev_pos = position;
                 if(Lookahead == '|')
-                    return new SyntaxeToken(SyntaxeKind.LogicalOrToken, position+=2, "||", null);
+                {
+                    position += 2;
+                    return new SyntaxeToken(SyntaxeKind.LogicalOrToken, prev_pos, "||", null);
+                }
+                    
             }
             else if(Current == '=')
             {
+                var prev_pos = position;
                 if (Lookahead == '=')
-                    return new SyntaxeToken(SyntaxeKind.DoubleEqualToken, position += 2, "==", null);
+                {
+                    position += 2;
+                    return new SyntaxeToken(SyntaxeKind.DoubleEqualToken, prev_pos, "==", null);
+                }
+                //assignment
+                return new SyntaxeToken(SyntaxeKind.EqualToken, position++, "=", null);
+                    
             }
 
-            diagnostics.Add($"ERROR: Bad token input '{Current}'");
+            diagnostics.ReportBadCharacter(position, Current);
 
             return new SyntaxeToken(SyntaxeKind.BadToken, position++, text.Substring(position-1, 1),null);
 

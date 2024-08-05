@@ -6,9 +6,9 @@ namespace MYCOMPILER.CodeAnalysis.Binding
 
     internal sealed class Binder{
 
-        private readonly List<string> _diagnostics = new List<string>();
+        private readonly DiagnosticBag _diagnostics = new DiagnosticBag();
 
-        public IEnumerable<string> Diagnostics => _diagnostics;
+        public DiagnosticBag Diagnostics => _diagnostics;
 
 
         public BoundExpression bindExpression(ExpressionSyntaxe syntax)
@@ -36,7 +36,7 @@ namespace MYCOMPILER.CodeAnalysis.Binding
             var boundBinaryOp = BoundBinaryOperator.bind(syntax.OperatorToken.Kind,boundLeft.Type,boundRight.Type);
             if(boundBinaryOp == null)
             {
-                _diagnostics.Add($"Binary operator '{syntax.OperatorToken.Text}' is not defined for type {boundLeft.Type} and {boundRight.Type}");
+                _diagnostics.ReportUndefinedBinaryOperator(syntax.OperatorToken.Span, syntax.OperatorToken.Text,boundLeft.Type, boundRight.Type);
                 return boundLeft;
             }
             return new BoundBinaryExpression(boundLeft, boundBinaryOp, boundRight); 
@@ -48,7 +48,7 @@ namespace MYCOMPILER.CodeAnalysis.Binding
             var boundOp = BoundUnaryOperator.bind(syntax.OperatorToken.Kind, boundOperand.Type);
             if(boundOp == null)
             {
-                _diagnostics.Add($"Unary operator '{syntax.OperatorToken.Text}' is not defined for type {boundOperand.Type}");
+                _diagnostics.ReportUndefinedUnaryOperator(syntax.OperatorToken.Span, syntax.OperatorToken.Text , boundOperand.Type);
                 return boundOperand;
             }
             return new BoundUnaryExpression(boundOperand, boundOp); 

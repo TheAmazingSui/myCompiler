@@ -1,9 +1,9 @@
 
 namespace MYCOMPILER.CodeAnalysis.Syntax
 {
-    sealed class SyntaxTree
+    public sealed class SyntaxTree
     {
-        public SyntaxTree(IEnumerable<string> diagnostics, ExpressionSyntaxe root, SyntaxeToken endOfFile)
+        public SyntaxTree(IEnumerable<Diagnostic> diagnostics, ExpressionSyntaxe root, SyntaxeToken endOfFile)
         {
             Root = root;
             EndOfFile = endOfFile;
@@ -19,6 +19,6 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
 
         public ExpressionSyntaxe Root { get; }
         public SyntaxeToken EndOfFile { get; }
-        public IReadOnlyList<string> Diagnostics { get; }
+        public IReadOnlyList<Diagnostic> Diagnostics { get; }
     }
 }

@@ -1,0 +1,12 @@
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/bin/Debug/net8.0/yap.deps.json
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/bin/Debug/net8.0/yap.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/bin/Debug/net8.0/yap.pdb
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.GeneratedMSBuildEditorConfig.editorconfig
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.AssemblyInfoInputs.cache
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.AssemblyInfo.cs
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.csproj.CoreCompileInputs.cache
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.sourcelink.json
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/refint/yap.dll
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/yap.pdb
+/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/Debug/net8.0/ref/yap.dll

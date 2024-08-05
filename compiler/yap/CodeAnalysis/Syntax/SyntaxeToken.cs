@@ -17,6 +17,8 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
 
         public object Value { get; }
 
+        public TextSpan Span => new TextSpan(Position, Text.Length);
+
         public override IEnumerable<SyntaxeNode> GetChildren(){
             return Enumerable.Empty<SyntaxeNode>();
         }

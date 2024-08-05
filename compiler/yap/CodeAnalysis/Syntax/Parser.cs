@@ -9,9 +9,9 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
         private readonly SyntaxeToken[] tokensArray;
         private int position;
 
-        private List<string> diagnostic = new List<string>();
+        private DiagnosticBag diagnostic = new DiagnosticBag();
 
-        public IEnumerable<string> Diagnostic => diagnostic;
+        public DiagnosticBag Diagnostic => diagnostic;
         public Parser(string text)
         {
             Lexer lexer = new Lexer(text);
@@ -58,7 +58,7 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 return curr;
             }
 
-            diagnostic.Add($"ERROR: Unexpected token '{Current.Kind}', expected '{kind}'");
+            diagnostic.ReportUnexpectedToken(Current.Span, Current.Kind, kind);
             return new SyntaxeToken(kind, Current.Position, null, null);
         }
 
