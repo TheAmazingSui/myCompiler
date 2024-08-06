@@ -4,14 +4,14 @@ namespace MYCOMPILER.CodeAnalysis
 {
     internal sealed class Evaluator
     {
-        public Evaluator(BoundExpression root, Dictionary<string, object> variables)
+        public Evaluator(BoundExpression root, Dictionary<VariableSymbol, object> variables)
         {
             Root = root;
             _variables = variables;
         }
 
         private readonly BoundExpression Root;
-        private readonly Dictionary<string, object> _variables;
+        private readonly Dictionary<VariableSymbol, object> _variables;
 
         public object Evaluate()
         {
@@ -27,12 +27,12 @@ namespace MYCOMPILER.CodeAnalysis
             }
             else if(node is BoundVariableExpression v)
             {
-                return _variables[v.Name];
+                return _variables[v.VariableSymbol];
             }
             else if(node is BoundAssignmentExpression a)
             {
                 var value = EvaluateExpression(a.BoundExp);
-                _variables[a.Name] = value;
+                _variables[a.VariableSymbol] = value;
                 return value;
 
             }

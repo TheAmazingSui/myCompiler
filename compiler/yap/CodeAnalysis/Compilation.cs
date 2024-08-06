@@ -12,7 +12,7 @@ namespace MYCOMPILER.CodeAnalysis
 
         public SyntaxTree Tree { get; }
 
-        public EvaluationResult Evaluate(Dictionary<string,object> variables)
+        public EvaluationResult Evaluate(Dictionary<VariableSymbol,object> variables)
         {
             var binder = new Binder(variables);
             var boundExp = binder.bindExpression(Tree.Root);

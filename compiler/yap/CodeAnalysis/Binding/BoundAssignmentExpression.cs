@@ -3,13 +3,12 @@ namespace MYCOMPILER.CodeAnalysis.Binding
     internal class BoundAssignmentExpression : BoundExpression
     {
 
-        public BoundAssignmentExpression(string name, BoundExpression boundExp)
+        public BoundAssignmentExpression(VariableSymbol variableSymbol, BoundExpression boundExp)
         {
-            Name = name;
+            VariableSymbol = variableSymbol;
             BoundExp = boundExp;
         }
-
-        public string Name { get; }
+        public VariableSymbol VariableSymbol { get; }
         public BoundExpression BoundExp { get; }
 
         public override Type Type => BoundExp.Type;

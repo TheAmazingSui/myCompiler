@@ -7,9 +7,9 @@ namespace MYCOMPILER.CodeAnalysis.Binding
     internal sealed class Binder{
 
         private readonly DiagnosticBag _diagnostics = new DiagnosticBag();
-        private readonly Dictionary<string, object> _variables;
+        private readonly Dictionary<VariableSymbol, object> _variables;
 
-        public Binder(Dictionary<string, object> variables)
+        public Binder(Dictionary<VariableSymbol, object> variables)
         {
             _variables = variables;
         }
@@ -45,34 +45,27 @@ namespace MYCOMPILER.CodeAnalysis.Binding
             var boundExp = bindExpression(syntax.Exp);
             var name = syntax.IdentifierToken.Text;
 
-            var defaultValue = (object)null;
-            if(boundExp.Type == typeof(int))
+            var existingVariable = _variables.Keys.FirstOrDefault(v => v.Name == name);
+            if(existingVariable != null)
             {
-                defaultValue = (object)0;
+                _variables.Remove(existingVariable);
             }
-            else if (boundExp.Type == typeof(bool))
-            {
-                defaultValue = (object)false;
-            }
-            else{
-                defaultValue = null;
-            }
-            if(defaultValue == null)
-                throw new Exception($"Unsupported type {boundExp.Type}");
-            _variables[name] = defaultValue;
-            return new BoundAssignmentExpression(name, boundExp);
+            var variable = new VariableSymbol(name, boundExp.Type);
+            _variables[variable] = null;
+            return new BoundAssignmentExpression(variable, boundExp);
         }
 
         private BoundExpression bindNameExpression(NameExpressionSyntax syntax)
         {
             var name = syntax.IdentifierToken.Text;
-            if(!_variables.TryGetValue(name, out var value))
+
+            var variable = _variables.Keys.FirstOrDefault(v => v.Name == name);
+            if(variable == null)
             {
                 _diagnostics.ReportUndefinedName(syntax.IdentifierToken.Span, name);
                 return new BoundLiteralExpression(0);
             }
-            var type = value.GetType();
-            return new BoundVariableExpression(name, type);
+            return new BoundVariableExpression(variable);
         }
 
         private BoundExpression bindBinaryExpression(BinaryExpressionSyntaxe syntax)

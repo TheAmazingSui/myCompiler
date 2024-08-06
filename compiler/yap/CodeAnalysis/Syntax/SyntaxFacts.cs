@@ -32,7 +32,7 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
             {
                 case SyntaxeKind.PlusToken:
                 case SyntaxeKind.MinusToken:
-                case SyntaxeKind.BadToken:
+                case SyntaxeKind.BangToken:
                     return 6;
                 default:
                     return 0;

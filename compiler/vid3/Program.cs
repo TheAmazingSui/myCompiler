@@ -9,7 +9,7 @@ namespace vid3
          static void Main(string[] args)
         {
             bool showTree = false;
-            Dictionary<string,object> variables = new Dictionary<string,object>();
+            Dictionary<VariableSymbol,object> variables = new Dictionary<VariableSymbol,object>();
             while(true)
             {
                 Console.Write(">");
