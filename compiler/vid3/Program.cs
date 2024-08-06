@@ -9,6 +9,7 @@ namespace vid3
          static void Main(string[] args)
         {
             bool showTree = false;
+            Dictionary<string,object> variables = new Dictionary<string,object>();
             while(true)
             {
                 Console.Write(">");
@@ -28,7 +29,7 @@ namespace vid3
                 //Lexer lexer = new Lexer(line);
                 SyntaxTree exp = SyntaxTree.parse(line);
                 var compilation = new Compilation(exp);
-                var result = compilation.Evaluate();
+                var result = compilation.Evaluate(variables);
                 var diagnostics = result.Diagnostics;
 
                 if(showTree)

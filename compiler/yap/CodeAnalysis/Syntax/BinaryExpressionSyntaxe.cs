@@ -3,7 +3,7 @@
 
 namespace MYCOMPILER.CodeAnalysis.Syntax
 {
-    sealed class BinaryExpressionSyntaxe : ExpressionSyntaxe
+    public sealed class BinaryExpressionSyntaxe : ExpressionSyntaxe
     {
         public BinaryExpressionSyntaxe(ExpressionSyntaxe left, SyntaxeToken operatorToken, ExpressionSyntaxe right)
         {

@@ -69,14 +69,32 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
             return new SyntaxTree(diagnostic, exp, endof);
         }
 
-        private ExpressionSyntaxe parseExpression(int parentPrecedence = 0)
+        private ExpressionSyntaxe parseExpression()
+        {
+            return parseAssignmentExpression();
+        }
+
+        private ExpressionSyntaxe parseAssignmentExpression()
+        {
+            if(Peek(0).Kind == SyntaxeKind.IdentifierKeyword && Peek(1).Kind == SyntaxeKind.EqualToken)
+            {
+                var identifier = NextToken();
+                var opEqual = NextToken();
+                var right = parseAssignmentExpression();
+                return new AssignmentExpressionSyntax(identifier, opEqual, right); 
+            }
+            return parseBinaryExpression();
+
+        }
+
+        private ExpressionSyntaxe parseBinaryExpression(int parentPrecedence = 0)
         {
             var unary = SyntaxFacts.GetUnaryOperatorPriority(Current.Kind);
             ExpressionSyntaxe left;
             if(unary !=0 && unary >= parentPrecedence)
             {
                 var operatorToken = NextToken();
-                var operand =  parseExpression(unary);
+                var operand =  parseBinaryExpression(unary);
                 left = new UnaryExpressionSyntaxe(operand, operatorToken);
             }
             else{
@@ -89,7 +107,7 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 if (opPriority == 0 || opPriority <= parentPrecedence)
                     break;
                 var op = NextToken();
-                var right = parseExpression(opPriority);
+                var right = parseBinaryExpression(opPriority);
                 left = new BinaryExpressionSyntaxe(left, op, right);
             }
             return left;
@@ -112,6 +130,11 @@ namespace MYCOMPILER.CodeAnalysis.Syntax
                 var keyWord = NextToken();
                 var value = keyWord.Kind == SyntaxeKind.TrueKeyword;
                 return new LiteralExpressionSyntaxe(keyWord, value);
+            }
+            else if(Current.Kind == SyntaxeKind.IdentifierKeyword)
+            {
+                var identifier = NextToken();
+                return new NameExpressionSyntax(identifier);
             }
             SyntaxeToken numExp = match(SyntaxeKind.NumberToken);
             return new LiteralExpressionSyntaxe(numExp);

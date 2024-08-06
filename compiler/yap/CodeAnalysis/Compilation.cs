@@ -12,15 +12,15 @@ namespace MYCOMPILER.CodeAnalysis
 
         public SyntaxTree Tree { get; }
 
-        public EvaluationResult Evaluate()
+        public EvaluationResult Evaluate(Dictionary<string,object> variables)
         {
-            var binder = new Binder();
+            var binder = new Binder(variables);
             var boundExp = binder.bindExpression(Tree.Root);
 
             var diagnostics = Tree.Diagnostics.Concat(binder.Diagnostics).ToArray();
             if (diagnostics.Any())
                 return new EvaluationResult(diagnostics, null);
-            var evaluator = new Evaluator(boundExp);
+            var evaluator = new Evaluator(boundExp, variables);
             var value = evaluator.Evaluate();
             return new EvaluationResult(Array.Empty<Diagnostic>(), value);
 

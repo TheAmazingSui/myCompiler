@@ -53,5 +53,11 @@ namespace MYCOMPILER.CodeAnalysis
             var message = $"Unary operator '{text}' is not defined for type {type}";
             Report(span, message);
         }
+
+        internal void ReportUndefinedName(TextSpan span, string name)
+        {
+            var message = $"Variable '{name}' does not exist.";
+            Report(span, message);
+        }
     }
 }

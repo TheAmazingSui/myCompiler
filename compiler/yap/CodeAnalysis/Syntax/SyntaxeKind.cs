@@ -33,6 +33,8 @@ namespace MYCOMPILER.CodeAnalysis.Syntax{
         BinaryExpression,
         ParenthesizedExpression,
         LiteralExpression,
-        UnaryExpression
+        UnaryExpression,
+        NameExpression,
+        AssignmentExpression
     }
 } 

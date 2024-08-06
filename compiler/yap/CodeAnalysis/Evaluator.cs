@@ -4,26 +4,39 @@ namespace MYCOMPILER.CodeAnalysis
 {
     internal sealed class Evaluator
     {
-        public Evaluator(BoundExpression root)
+        public Evaluator(BoundExpression root, Dictionary<string, object> variables)
         {
             Root = root;
+            _variables = variables;
         }
 
         private readonly BoundExpression Root;
+        private readonly Dictionary<string, object> _variables;
 
         public object Evaluate()
         {
             return EvaluateExpression(Root);
         }
 
-        public object EvaluateExpression(BoundExpression root)
+        public object EvaluateExpression(BoundExpression node)
         {
 
-            if (root is BoundLiteralExpression n)
+            if (node is BoundLiteralExpression n)
             {
                 return n.Value;
             }
-            else if(root is BoundUnaryExpression u)
+            else if(node is BoundVariableExpression v)
+            {
+                return _variables[v.Name];
+            }
+            else if(node is BoundAssignmentExpression a)
+            {
+                var value = EvaluateExpression(a.BoundExp);
+                _variables[a.Name] = value;
+                return value;
+
+            }
+            else if(node is BoundUnaryExpression u)
             {
                 var ans = EvaluateExpression(u.Operand);
                 if (u.BoundOp.BoundKind == BoundUnaryOperatorKind.Identity)
@@ -36,7 +49,7 @@ namespace MYCOMPILER.CodeAnalysis
                     throw new Exception($"Unexpected operator: '{u.BoundOp}!");
                 
             }
-            else if (root is BoundBinaryExpression b)
+            else if (node is BoundBinaryExpression b)
             {
                 var lft = EvaluateExpression(b.Left);
                 var rgt = EvaluateExpression(b.Right);
@@ -63,11 +76,11 @@ namespace MYCOMPILER.CodeAnalysis
                         throw new Exception($"Unexpected operator: '{b.Op.BoundOP}!");
                 }
             }
-            //else if (root is ParenthesizedExpressionSyntax p)
+            //else if (node is ParenthesizedExpressionSyntax p)
             //{
                 //return EvaluateExpression(p.NumExp);
             //}
-            throw new Exception($"Unexpected node: {root.Kind}");
+            throw new Exception($"Unexpected node: {node.Kind}");
 
         }
     }
