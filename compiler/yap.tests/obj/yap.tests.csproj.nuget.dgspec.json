@@ -1,0 +1,146 @@
+{
+  "format": 1,
+  "restore": {
+    "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap.tests/yap.tests.csproj": {}
+  },
+  "projects": {
+    "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap.tests/yap.tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap.tests/yap.tests.csproj",
+        "projectName": "yap.tests",
+        "projectPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap.tests/yap.tests.csproj",
+        "packagesPath": "/home/theamazingsui/.nuget/packages/",
+        "outputPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap.tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/theamazingsui/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj": {
+                "projectPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.8.0, )"
+            },
+            "coverlet.collector": {
+              "target": "Package",
+              "version": "[6.0.0, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.5.3, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj",
+        "projectName": "yap",
+        "projectPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/yap.csproj",
+        "packagesPath": "/home/theamazingsui/.nuget/packages/",
+        "outputPath": "/mnt/c/Users/TheAmazingSui/Desktop/Compiler/myCompiler/compiler/yap/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/theamazingsui/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/share/dotnet/sdk/8.0.303/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
